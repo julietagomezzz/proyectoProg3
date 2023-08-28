@@ -1,0 +1,515 @@
+
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+} 
+/* header */
+
+header{
+    height:15vh;
+    border-bottom:  2px solid #707070;
+    display: flex;
+    align-items: center;
+    background-color: purple;
+    color: white;
+   
+}
+nav { 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    justify-content: start;
+    width:6%;
+    margin: 0 0 0 5%;
+    border-radius: 110px;
+    height: 10vh;
+
+}
+header a {
+    font-weight: bold;
+    font-size:23px;
+    margin:0 3.5%;
+    color: white;
+}
+/* index */
+.cajapadre{
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+article{
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      padding: 30px;
+      justify-content: center;
+      align-items: center;
+      color: white;
+  
+  
+  }
+img{
+     height: 200px; 
+    width: 150px;
+    border-radius: 15px;
+    
+  }
+.nombrePeli{
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size:17px;
+    text-align: center;
+    color: white;
+  }
+.fechapelicula{
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 0.2%;
+    color: white;
+}
+
+
+
+
+ul, ol{
+        padding: 0;
+    }
+li{
+    list-style-type: none;
+}
+a {
+    text-decoration: none; 
+    color: rgb(255, 254, 254);
+}
+.flexBoton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: purple;
+}
+.verMas {
+    background-color: purple;
+    color: white;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+
+
+.favoritos {
+    align-self: center;
+    width:80%;
+    margin-top:20%;
+}
+
+.subtitulo{
+    margin: 3%;
+    color: white;
+}
+
+
+
+/*Pagina de detalle*/
+.section{
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+}
+.article{
+    align-self: center;
+    margin-bottom: 7vh;
+
+}
+.poster{
+    height: auto;
+    width: 20%;
+    border-radius: 8%;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.tituloPelicula{
+    font-size: 30px;
+    margin-bottom: 2vh;
+    max-width: 100%;
+}
+
+.fecha{
+    font-size: 20px;
+    margin-bottom: 1vh;
+    font-weight: normal;
+    align-self: center;
+}
+
+.descripcionPelicula{
+    font-size: 20px;
+    margin-bottom: 1vh;
+    
+}
+.generoPelicula{
+    font-size: 20px;
+    margin-bottom: 1vh;
+    align-self: flex-start;
+    
+}
+.duracion{
+    font-size: 20px;
+    align-self: flex-start;
+}
+.rating{
+    font-size: 20px;
+    margin-bottom: 1vh;
+}
+
+/* icono*/
+.articleIcono{
+    display: flex;
+    align-content: center;
+    margin-bottom: 50vh;
+
+}
+
+.iconoCorazon{
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+
+/* lista de genero */
+
+.containerGenero{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;   
+    justify-content: space-around;
+    padding: 10px;
+    height:550px;
+}
+.generoPrueba{
+    align-self: flex-start;
+    margin-left: 250px;
+    height: 300px;
+    width: 200px;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+.seriesPrueba{
+    align-self: flex-start;
+    margin-right: 250px;
+    height: 300px;
+    width: 200px;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.tituloGenero{
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    font-family: poppins;
+    justify-content: center;
+    font-size: 30px;
+    text-align: left;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+
+
+}
+.listaGenero{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+.genero{
+    background-color: purple;
+    color: white;
+    text-decoration: none;
+    height: 42px;
+    width: 200px;
+    font-weight: bold;
+    font-family: poppins;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+/* Reglas resultado de busqueda*/
+
+.tituloResultado{
+    text-align: center;
+    color: white;
+}
+.oculta{
+    text-align: center;
+    color: white;
+    display: none;
+}
+/* footer*/
+footer{
+    background-color: purple;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.imgFooter{
+    display: flex;
+    justify-content: end;
+    width:8%;
+    margin: 0 0 0 5%;
+    height: 10vh;
+}
+.formatoSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gif {
+    width: 50%;
+    margin-bottom: 5%;
+    align-items: center;
+}
+/*--Responsive mobile last--*/
+
+/* Media Queries*/
+
+@media(max-width: 420px){
+    /* header*/
+    img{
+        height: 150px; 
+       width: 120px;
+       border-radius: 5px;
+     }
+    header{
+        height: 15vh;
+        width: 420px;
+        border-bottom: 2px solid #707070;
+        display: flex;
+        align-items: center;
+        background-color: purple;
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+    nav { 
+        display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    }
+    
+    .logo {
+        display: flex;
+        justify-content: start;
+        width:40px;
+        margin: 0 0 0 5%;
+        border-radius: 100px;
+        height: 40px;
+    
+    }
+    header a {
+        font-weight: bold;
+        font-size:15px;
+        margin:0 3.5%;
+        color: white;
+        justify-content: center;
+    }
+    
+    .favoritos {
+        align-self: center;
+        width:50%;
+        margin-top:20%;
+    }
+    
+    .subtitulo{
+        margin: 3%;
+        color: white;
+    }
+    .formulario{
+        width: 60%;
+        justify-content: center;
+    }
+    /*Pagina de detalle*/
+    .section{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    }
+    .article{
+    align-self: center;
+    margin-bottom: 2vh;
+    margin-top: 0px;
+
+    }
+    .poster{
+    height: auto;
+    width: 50%;
+    border-radius: 8%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    }
+    .tituloPelicula{
+    font-size: 25px;
+    margin-bottom: 2vh;
+    max-width: 100%;
+    }
+
+    .fecha{
+    font-size: 15px;
+    margin-bottom: 1vh;
+    font-weight: normal;
+    align-self: flex-start;
+    }
+
+    .descripcionPelicula{
+    font-size: 12px;
+    margin-bottom: 0px;
+    
+    }
+    .generoPelicula{
+    font-size: 12px;
+    margin-bottom: 1vh;
+    align-self: flex-start;
+    
+    }
+    .duracion{
+    font-size: 12px;
+    align-self: flex-start;
+    }
+    .rating{
+    font-size: 12px;
+    margin-bottom: 1vh;
+    }
+/* icono*/
+    .articleIcono{
+    display: flex;
+    align-content: center;
+    margin-bottom: 10vh;
+
+    }
+
+    .iconoCorazon{
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+    }
+
+/*Genero*/
+    .containerGenero{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;   
+    justify-content: space-around;
+    padding: 10px;
+    height:100%;
+    }
+    .generoPrueba{
+    align-self: flex-start;
+    margin-left: 25%;
+    height: 70%;
+    width: 50%;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    }
+    .seriesPrueba{
+    align-self: flex-start;
+    margin-left: 25%;
+    height: 70%;
+    width: 50%;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    }
+
+    .tituloGenero{
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+    font-size: 30px;
+    text-align: left;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+
+
+    }
+    .listaGenero{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    }
+   
+    .genero{
+    background-color: purple;
+    color: white;
+    text-decoration: none;
+    height: 60px;
+    width: 200px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+
+    }
+/* footer*/
+    footer{
+    background-color: purple;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+   
+}
+.imgFooter{
+    display: flex;
+    justify-content: end;
+    width:5%;
+    height: 50%;
+    margin: 0 0 0 5%;
+    height: 10vh;
+}
+}
