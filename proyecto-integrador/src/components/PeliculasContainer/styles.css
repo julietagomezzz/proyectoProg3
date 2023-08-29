@@ -5,3 +5,13 @@
     align-items: center;
     flex-wrap: wrap;
   }
+
+  *{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+} 
