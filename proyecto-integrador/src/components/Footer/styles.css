@@ -1,0 +1,36 @@
+ul{
+    padding: 0;
+}
+li{
+list-style-type: none;
+color: white;
+font-family: sans-serif;
+}
+footer{
+    background-color: purple;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.imgFooter{
+    display: flex;
+    justify-content: end;
+    width:8%;
+    margin: 0 0 0 5%;
+    height: 10vh;
+    border-radius: 50px;
+}
+.formatoSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gif {
+    width: 50%;
+    margin-bottom: 5%;
+    align-items: center;
+}
