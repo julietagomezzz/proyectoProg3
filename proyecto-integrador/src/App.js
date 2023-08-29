@@ -5,6 +5,7 @@ function App() {
   return (
     <div>
     < Header />
+    
     < PeliculasContainer/>
     <p>React</p>
     < Footer />

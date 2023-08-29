@@ -13,7 +13,7 @@ class PeliculasContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      personajes: [],
+      peliculas: [],
       page:1
     }
   }
@@ -26,7 +26,7 @@ class PeliculasContainer extends Component {
     fetch(peliculasPopulares)
     .then(resp => resp.json())
     .then(data => this.setState({
-      personajes: data.results
+      peliculas: data.results
     }))
     .catch(err => console.log(err))
   }
@@ -35,7 +35,7 @@ class PeliculasContainer extends Component {
     fetch(peliculasPopulares)
     .then(resp => resp.json())
     .then(data => this.setState({
-      personajes: this.state.personajes.concat(data.results),
+      peliculas: this.state.peliculas.concat(data.results),
       page: this.state.page + 1
     }))
     .catch(err => console.log(err))
@@ -45,14 +45,14 @@ class PeliculasContainer extends Component {
   render(){
     return (
       <>
-      <div className='characters-container'>
+       <section className="cajapadre" id="peliculasPopu" >
         {
-          this.state.personajes.length === 0 ?
-          <h1>Trayendo personajes</h1> :
-          this.state.personajes.map((personaje)=> <Peliculas nombre={personaje.title} imagen={personaje.poster_path} descripcion={personaje.release_date} id={personaje.id}  />)
+          this.state.peliculas.length === 0 ?
+          <h1>Trayendo peliculas</h1> :
+          this.state.peliculas.map((pelicula)=> <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id}  />)
         }
-      </ div>
-        <button onClick={()=> this.traerMasPersonajes()}>Traer mas personajes</button>
+      
+        <button onClick={()=> this.traerMasPersonajes()}>Mas peliculas</button></section>
       </>
     )
   }
