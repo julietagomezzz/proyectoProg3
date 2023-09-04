@@ -5,17 +5,11 @@ export default function Header() {
         <header>
         <nav>
             <img src="../img/logo.png" className="logo" alt="" />
-            <a href="./index.html">Home</a>
-            <a href="./favoritos.html">Favoritos</a>
-            <a href="./genero.html">Películas</a>
-            <a href="./genero.html">Series</a>
+            <a href="/">Home</a>
+            <a href="/favoritos">Favoritos</a>
+            <a href="/Peliculas">Películas</a>
+            <a href="/Series">Series</a>
         </nav>
-        <form action="resultados.html" method="get" className="formulario">
-            <label for="" className="palabraBuscador">Buscar pelicula o serie:</label>
-            <input type="text" name="busqueda" value="" />
-            <button type="submit">Buscar</button>
-        </form>
-
        </header>
     )
   }

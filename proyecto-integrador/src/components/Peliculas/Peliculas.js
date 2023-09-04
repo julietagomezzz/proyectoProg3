@@ -16,9 +16,11 @@ class Peliculas extends Component{
           alt={this.props.nombre} />
           <p className="nombrePeli">{this.props.nombre}</p>
           <p>  Fecha de estreno: {this.props.descripcion} </p>
-              <button type="" className="verMas">Ver mas</button>
-          
-      </article>
+              
+        <a href="/DetallePelicula/id/:id">
+            <button type="" className="verMas">Ir a detalle</button>
+        </a>
+        </article>
         )
     }
 }

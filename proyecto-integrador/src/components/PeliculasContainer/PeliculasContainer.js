@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Peliculas from '../Peliculas/Peliculas'
+import BuscadorForm from '../Buscador/BuscadorForm'
 import './styles.css'
 
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
@@ -29,6 +30,13 @@ class PeliculasContainer extends Component {
       peliculas: data.results
     }))
     .catch(err => console.log(err))
+  }
+
+  filtrarPersonajes(nombre){
+    let personajesFiltrados = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(nombre.toLowerCase()))
+    this.setState({
+      personajes: personajesFiltrados,
+    })
   }
 
 
