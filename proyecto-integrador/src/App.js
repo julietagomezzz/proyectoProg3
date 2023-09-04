@@ -8,7 +8,7 @@ import Peliculas from "./screens/Peliculas"
 import Series from "./screens/Series"
 import Favoritos from './screens/Favoritos'
 import NotFound from './screens/NotFound'
-import { Router } from "react-router-dom/cjs/react-router-dom.min";
+
 function App() {
   return (
     <>

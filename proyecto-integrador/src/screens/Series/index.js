@@ -1,7 +1,9 @@
 import React from 'react'
+import SeriesTotales from '../../components/SeriesTotales/SeriesTotales'
+
 
 export default function index() {
   return (
-    <div>ERROR 404</div>
+    <SeriesTotales/>
   )
 }

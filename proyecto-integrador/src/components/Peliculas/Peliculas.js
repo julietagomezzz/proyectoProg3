@@ -6,7 +6,7 @@ class Peliculas extends Component{
         super(props)
     }
 
-   f
+
 
     render(){
         return(
