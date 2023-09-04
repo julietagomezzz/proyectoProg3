@@ -1,32 +1,31 @@
 import React, {Component} from 'react'
-import Peliculas from '../Peliculas/Peliculas'
+import Series from '../Series/Series'
 import './styles.css'
 
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
 let api= `https://api.themoviedb.org/3/movie/76341?api_key=${apiKey}`
-let peliculasPopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
 let seriesPopulares = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`
 let topRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`
 
 
-class PeliculasContainer extends Component {
+class SeriesContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      peliculas: [],
+      series: [],
       page:1
     }
   }
 
   componentDidMount(){
-    this.traerPeliculas()
+    this.traerSeries()
   }
 
-  traerPeliculas(){
-    fetch(peliculasPopulares)
+  traerSeries(){
+    fetch(seriesPopulares)
     .then(resp => resp.json())
     .then(data => this.setState({
-      peliculas: data.results
+      series: data.results
     }))
     .catch(err => console.log(err))
   }
@@ -37,12 +36,12 @@ class PeliculasContainer extends Component {
       <>
        <section className="cajapadre" id="peliculasPopu" >
         {
-          this.state.peliculas.length === 0 ? 
-          <h1>Trayendo peliculas</h1> :
-          this.state.peliculas.map((pelicula, index)=> {
+          this.state.series.length === 0 ? 
+          <h1>Trayendo series</h1> :
+          this.state.series.map((serie, index)=> {
             if (index < 5){
               return(
-              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id}  />
+              <Series nombre={serie.name} imagen={serie.poster_path} descripcion={serie.first_air_date} id={serie.id}  />
               )
             }
           }
@@ -55,4 +54,4 @@ class PeliculasContainer extends Component {
   }
 }
 
-export default PeliculasContainer
+export default SeriesContainer

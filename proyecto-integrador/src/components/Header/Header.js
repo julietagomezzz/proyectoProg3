@@ -7,7 +7,8 @@ export default function Header() {
             <img src="../img/logo.png" className="logo" alt="" />
             <a href="./index.html">Home</a>
             <a href="./favoritos.html">Favoritos</a>
-            <a href="./genero.html">Ver todas</a>
+            <a href="./genero.html">Películas</a>
+            <a href="./genero.html">Series</a>
         </nav>
         <form action="resultados.html" method="get" className="formulario">
             <label for="" className="palabraBuscador">Buscar pelicula o serie:</label>
