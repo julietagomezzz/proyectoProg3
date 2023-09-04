@@ -1,4 +1,6 @@
 import { Component } from "react";
+import './styles.css'
+
 
 class BuscadorForm extends Component{
     constructor(props){
@@ -25,7 +27,7 @@ class BuscadorForm extends Component{
         return(
             <>
             <form action="resultados.html" method="get" className="formulario">
-            <label for="" className="palabraBuscador">Buscar pelicula o serie:</label>
+            <label for="" className="palabraBuscador">Buscar pelicula o serie:   </label>
             <input type="text" name="busqueda" value="" />
             <button type="submit">Buscar</button>
             </form>
