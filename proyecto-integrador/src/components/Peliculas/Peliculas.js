@@ -15,8 +15,9 @@ class Peliculas extends Component{
            <img src= {`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} 
           alt={this.props.nombre} />
           <p className="nombrePeli">{this.props.nombre}</p>
-          <p>  Fecha de estreno: {this.props.descripcion} </p>
-              
+          {/* <p>  Fecha de estreno: {this.props.descripcion} </p> */}
+          <a className='descripcionOculta'>Ver más</a>
+           
         <a href="/DetallePelicula/id/:id">
             <button type="" className="verMas">Ir a detalle</button>
         </a>

@@ -33,9 +33,17 @@ img{
   width: 100px;
   font-weight: bold;
   font-size: 16px;
+  cursor: pointer;
 
 }
-
+.descripcionOculta{
+  color: white;
+  font-size: 16px;
+  text-decoration: underline;
+  font-weight: bold;  
+  margin-bottom: 8px;
+  cursor: pointer;
+}
 
 
 
