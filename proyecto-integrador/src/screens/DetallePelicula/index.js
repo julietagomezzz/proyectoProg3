@@ -36,13 +36,13 @@ class index extends Component {
               <h3 className='letter'>{this.state.movieData.title}</h3> 
             </article>
               <article className="cajahijapelis">
-              <h2 className="letter" id="titulo2">TÍTULO: {this.state.movieData.title}</h2>
-              <p className="letter" id="data">RATING: {this.state.movieData.vote_average}</p>
-              <p className="letter" id="data">FECHA DE ESTRENO:  { this.state.movieData.release_date}</p>
-              <p className="letter" id="data">GÉNERO: </p>
+              <h2 className="titulo" id="titulo2">TÍTULO: {this.state.movieData.title}</h2>
+              <p className="subtitulo" id="data">RATING: {this.state.movieData.vote_average}</p>
+              <p className="subtitulo" id="data">FECHA DE ESTRENO:  { this.state.movieData.release_date}</p>
+              <p className="subtitulo" id="data">GÉNERO: </p>
               
-              <p className="letter" id="data">DURACIÓN: {this.state.movieData.runtime} minutes</p>
-              <p className="letter" id="data">SINOPSIS: {this.state.movieData.overview}</p>
+              <p className="subtitulo" id="data">DURACIÓN: {this.state.movieData.runtime} minutes</p>
+              <p className="subtitulo" id="data">SINOPSIS: {this.state.movieData.overview}</p>
               {
                 this.state.isFav ?
                 <button onClick={() => this.removeFav(this.state.movieData.id)}>REMOVE FROM FAV</button>
