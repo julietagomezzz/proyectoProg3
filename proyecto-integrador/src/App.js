@@ -22,6 +22,7 @@ function App() {
         <Route path={'/favoritos'} component={Favoritos} />
         <Route component={NotFound}/>
       </Switch>
+      
     < Footer />
     </>
   );
