@@ -14,9 +14,9 @@ class index extends Component{
    <section>
 
         <BuscadorForm/>
-        <h2 className='subtitulo'> Peliculas populares </h2>
+        <h2 className='subtitulo'> Peliculas populares <a href='/Peliculas'><button className='botonExplorar'>Explorar todas</button></a></h2>
         <PeliculasContainer/>
-        <h2 className='subtitulo'> Series populares </h2>
+        <h2 className='subtitulo'> Series populares <a href='/Series'><button className='botonExplorar'>Explorar todas</button></a></h2>
         <SeriesContainer/>
 
     </section>

@@ -18,7 +18,7 @@ class Series extends Component{
           {/* <p>  Fecha de estreno: {this.props.descripcion} </p> */}
           <a className='descripcionOculta'>Ver más</a>
 
-          <a href="/DetalleSerie/id/:id">
+          <a href={`/DetalleSerie/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>
         </a>
           
