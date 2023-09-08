@@ -19,16 +19,16 @@ class BuscadorForm extends Component{
             {
                 valorInput: evento.target.value
             },
-            () => this.props.filtrarPersonajes(this.state.valorInput)
+            () => this.props.filtroPeliculas(this.state.valorInput)
         )
     }
 
     render(){
         return(
             <>
-            <form action="resultados.html" method="get" className="formulario">
+            <form onSubmit= {(evento)=> this.evitarSubmit (evento)} action="resultados.html" method="get" className="formulario">
             <label for="" className="palabraBuscador">Buscar pelicula o serie:   </label>
-            <input type="text" name="busqueda" value="" />
+            <input onChange={(evento)=> this.guardarValor (evento)} type="text" name="busqueda" value="" />
             <button type="submit">Buscar</button>
             </form>
             </>
