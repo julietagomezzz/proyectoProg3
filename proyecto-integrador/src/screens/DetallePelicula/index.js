@@ -2,6 +2,8 @@ import './styles.css'
 import React, { Component } from 'react'
 import { options } from '../../utils/constants'
 import { Link } from "react-router-dom"
+import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
+import PeliculasContainer from '../../components/PeliculasContainer/PeliculasContainer'
 
 class index extends Component {
   
@@ -9,17 +11,64 @@ class index extends Component {
     super(props)
     this.state={
         movieData:null,
+        esFavorito: false
     }
 }
 
   componentDidMount(){
+    let storageFav =  localStorage.getItem('favoritos')
+          let arrParseado = JSON.parse(storageFav)
+  
+          if(arrParseado !== null){
+            let estaMiPersonaje = arrParseado.includes(this.props.id)
+  
+            if(estaMiPersonaje){
+              this.setState({
+                esFavorito: true
+              })
+            }
+          }
     fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}`, options)
     .then(resp => resp.json())
     .then(data => this.setState({
-      movieData: data
-    }))
+      movieData: data,
+      
+    }
+    ))
     .catch(err => console.log(err))
   }
+
+  agregarAFavoritos(idPersonaje){
+    let storageFav = localStorage.getItem('favoritos')
+    if(storageFav === null){
+      let arrIds = [idPersonaje]
+      let arrStringificado = JSON.stringify(arrIds)
+      localStorage.setItem('favoritos', arrStringificado)
+    } else {
+      let arrParseado = JSON.parse(storageFav)
+      arrParseado.push(idPersonaje)
+      let arrStringificado = JSON.stringify(arrParseado)
+      localStorage.setItem('favoritos', arrStringificado)
+    }
+
+    this.setState({
+      esFavorito: true
+    })
+  }
+  sacarDeFavoritos(idPersonaje){
+    let storageFav = localStorage.getItem('favoritos')
+    let arrParseado = JSON.parse(storageFav)
+    let favsFiltrados = arrParseado.filter((id) => id !== idPersonaje)
+    let arrStringificado = JSON.stringify(favsFiltrados)
+    localStorage.setItem('favoritos', arrStringificado)
+    
+    this.setState({
+      esFavorito: false
+    })
+    
+  }
+
+  
 
   render() {
     return (
@@ -44,12 +93,15 @@ class index extends Component {
               <p className="subtitulo">DURACIÓN: {this.state.movieData.runtime} minutes</p>
               <p className="subtitulo">SINOPSIS: {this.state.movieData.overview}</p>
               {
-                this.state.isFav ?
-                <button className='botonFav' onClick={() => this.removeFav(this.state.movieData.id)}>REMOVE FROM FAV</button>
-                :
-                <button className='botonFav' onClick={() => this.addToFav(this.state.movieData.id)}>ADD TO FAV</button>
+                this.state.esFavorito ? 
+                <button onClick = {() => this.sacarDeFavoritos(this.state.movieData.id)}>
+                  Sacar de Favoritos
+                </button>
+                : 
+                <button onClick = {() => this.agregarAFavoritos(this.state.movieData.id)}>
+                  Agregar a Favoritos
+                </button>
               }
-                
                 
               </article>
           </section>

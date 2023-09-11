@@ -50,7 +50,7 @@ class PeliculasTotales extends Component {
           alt="Trayendo Peliculas" /> :
           this.state.peliculas.map((pelicula)=> {
               return(
-              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id}  />
+              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id} resumen={pelicula.overview}  />
               )
             }
           )
