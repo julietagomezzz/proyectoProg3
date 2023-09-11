@@ -29,7 +29,7 @@ class Peliculas extends Component{
           alt={this.props.nombre} />
           <p className="nombrePeli">{this.props.nombre}</p>
           <p className="descripcionOculta" onClick={() => this.descripcion ()}>{this.state.mensaje}</p>
-                    {this.state.mostrar ? <h5 className="nombrePeli">{this.props.resumen}</h5> : ""}
+                    {this.state.mostrar ? <h5 className="resumen">{this.props.resumen}</h5> : ""}
            
           <Link to={`/DetallePelicula/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>

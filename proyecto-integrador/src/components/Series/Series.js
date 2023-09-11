@@ -30,7 +30,7 @@ class Series extends Component{
           <p className="nombrePeli">{this.props.nombre}</p>
           {/* <p>  Fecha de estreno: {this.props.descripcion} </p> */}
           <p className="descripcionOculta" onClick={() => this.descripcion ()}>{this.state.mensaje}</p>
-                    {this.state.mostrar ? <h5 className="nombrePeli">{this.props.resumen}</h5> : ""}
+                    {this.state.mostrar ? <h5 className="resumen">{this.props.resumen}</h5> : ""}
 
           <Link to={`/DetalleSerie/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>
