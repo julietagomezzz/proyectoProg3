@@ -4,9 +4,22 @@ import { Link } from "react-router-dom"
 class Series extends Component{
     constructor(props){
         super(props)
+        this.state={
+            valor: '',
+            mostrar: false,
+            mensaje: 'Ver descripcion'
+        }
     }
 
-   f
+    evitarSubmit(event) {
+        event.preventDefault();
+    }
+
+    descripcion(){
+        if (this.state.mostrar == true ){this.setState({mostrar: false, mensaje: "Ver descripcion"})}
+        else{this.setState({mostrar: true, mensaje: "Ocultar descripcion"})}
+    }
+
 
     render(){
         return(
@@ -16,7 +29,8 @@ class Series extends Component{
           alt={this.props.nombre} />
           <p className="nombrePeli">{this.props.nombre}</p>
           {/* <p>  Fecha de estreno: {this.props.descripcion} </p> */}
-          <a className='descripcionOculta'>Ver más</a>
+          <p className="descripcionOculta" onClick={() => this.descripcion ()}>{this.state.mensaje}</p>
+                    {this.state.mostrar ? <h5 className="nombrePeli">{this.props.resumen}</h5> : ""}
 
           <Link to={`/DetalleSerie/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>

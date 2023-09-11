@@ -42,7 +42,7 @@ class SeriesContainer extends Component {
           this.state.series.map((serie, index)=> {
             if (index < 5){
               return(
-              <Series nombre={serie.name} imagen={serie.poster_path} descripcion={serie.first_air_date} id={serie.id}  />
+              <Series nombre={serie.name} imagen={serie.poster_path} descripcion={serie.first_air_date} id={serie.id} resumen={serie.overview}  />
               )
             }
           }
