@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PeliculasContainer from '../../components/PeliculasContainer/PeliculasContainer'
+import FavContainer from '../../components/FavContainer/FavContainer'
 
 class index extends Component {
 
@@ -24,6 +24,7 @@ class index extends Component {
       .then( data => this.setState({favoritos: data}))
       .catch(err => console.log(err))
     }
+    
   }
 
   actualizarState(id){
@@ -37,7 +38,7 @@ class index extends Component {
     return (
       <div>
         <h1>Aqui van a ir los Favoritos</h1>
-        <PeliculasContainer actualizarState ={(id)=> this.actualizarState(id)} personajes={this.state.favoritos} />
+        <FavContainer actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos} />
       </div>
     )
   }

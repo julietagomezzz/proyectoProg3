@@ -16,26 +16,30 @@ class index extends Component {
 }
 
   componentDidMount(){
-    let storageFav =  localStorage.getItem('favoritos')
-          let arrParseado = JSON.parse(storageFav)
-  
-          if(arrParseado !== null){
-            let estaMiPersonaje = arrParseado.includes(this.props.id)
-  
-            if(estaMiPersonaje){
-              this.setState({
-                esFavorito: true
-              })
-            }
-          }
+    
     fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}`, options)
     .then(resp => resp.json())
     .then(data => this.setState({
       movieData: data,
-      
+    },
+    () => {
+      let storageFav = localStorage.getItem('favoritos')
+      let arrParseado = JSON.parse(storageFav)
+
+      if (arrParseado !== null){
+        let estaMiPelicula = arrParseado.includes(this.state.movieData.id)
+        if(estaMiPelicula){
+          this.setState({
+            esFavorito: true
+          })
+        }
+      }
     }
+
     ))
     .catch(err => console.log(err))
+
+
   }
 
   agregarAFavoritos(idPersonaje){

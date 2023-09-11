@@ -51,7 +51,7 @@ class PeliculasContainer extends Component {
           this.state.peliculas.map((pelicula, index)=> {
             if (index < 5){
               return(
-              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id} resumen={pelicula.overview}  />
+              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id} resumen={pelicula.overview} />
               )
             }
           }
