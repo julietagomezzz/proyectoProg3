@@ -37,7 +37,8 @@ class SeriesContainer extends Component {
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.series.length === 0 ? 
-          <h1>Trayendo series</h1> :
+          <img src= "../img/loading.gif"
+          alt="Trayendo Peliculas" /> :
           this.state.series.map((serie, index)=> {
             if (index < 5){
               return(

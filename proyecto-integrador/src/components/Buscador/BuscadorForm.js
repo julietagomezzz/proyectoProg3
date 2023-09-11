@@ -1,18 +1,23 @@
+
+
 import { Component } from "react";
 import './styles.css'
-
 
 class BuscadorForm extends Component{
     constructor(props){
         super(props)
         this.state = {
-            valorInput: ''
+            valorInput: '',
+            movieData:[],
+            backup:[]
         }
     }
+
 
     evitarSubmit(evento){
         evento.preventDefault()
     }
+    
 
     guardarValor(evento){
         this.setState(
@@ -23,13 +28,14 @@ class BuscadorForm extends Component{
         )
     }
 
+    
+
     render(){
         return(
             <>
-            <form onSubmit= {(evento)=> this.evitarSubmit (evento)} action="resultados.html" method="get" className="formulario">
-            <label for="" className="palabraBuscador">Buscar pelicula o serie:   </label>
-            <input onChange={(evento)=> this.guardarValor (evento)} type="text" name="busqueda" value="" />
-            <button type="submit">Buscar</button>
+            <form onSubmit={(evento)=> this.evitarSubmit(evento)}>
+                <input onChange={(evento)=> this.guardarValor(evento)} value={this.state.valorInput}/>
+                <button type="submit">Buscar</button>
             </form>
             </>
         )

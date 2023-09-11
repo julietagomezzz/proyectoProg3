@@ -27,7 +27,8 @@ class index extends Component {
       {
         this.state.movieData === null ?
         <div className='container'>
-              <div id='load'><h1 className='letter'>Trayendo película...</h1></div>
+          <img src= "../img/loading.gif"
+          alt="Trayendo Peliculas" />
           </div>
         :
            <section className='sectionDetalle'>

@@ -46,7 +46,8 @@ class PeliculasContainer extends Component {
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.peliculas.length === 0 ? 
-          <h1>Trayendo peliculas</h1> :
+          <img src= "../img/loading.gif"
+          alt="Trayendo Peliculas" /> :
           this.state.peliculas.map((pelicula, index)=> {
             if (index < 5){
               return(

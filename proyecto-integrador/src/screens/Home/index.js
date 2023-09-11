@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom" 
 import BuscadorForm from '../../components/Buscador/BuscadorForm'
 import PeliculasContainer from '../../components/PeliculasContainer/PeliculasContainer'
 import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
@@ -15,6 +16,12 @@ class index extends Component{
       busqueda: []
     }
   }
+
+  componentDidMount() {
+    
+  }
+
+
   filtroPeliculas(input){
     fetch(`https://api.themoviedb.org/3/search/movie?query=${input}&include_adult=false&language=en-US&page=1`, options)
     .then(resp => resp.json())
@@ -30,9 +37,15 @@ class index extends Component{
    <section>
 
         <BuscadorForm filtroPeliculas={(input) => this.filtroPeliculas(input)}/>
-        <h2 className='subtitulo'> Peliculas populares <a href='/Peliculas'><button className='botonExplorar'>Explorar todas</button></a></h2>
+        {
+          this.state.busqueda.length === 0 ?
+          <main><PeliculasContainer/></main>
+          :
+          <main><PeliculasTotales movies={this.state.busqueda}/></main>
+        }
+        <h2 className='subtitulo'> Peliculas populares <Link to='/Peliculas'><button className='botonExplorar'>Explorar todas</button></Link></h2>
         <PeliculasContainer/>
-        <h2 className='subtitulo'> Series populares <a href='/Series'><button className='botonExplorar'>Explorar todas</button></a></h2>
+        <h2 className='subtitulo'> Series populares <Link to='/Series'><button className='botonExplorar'>Explorar todas</button></Link></h2>
         <SeriesContainer/>
 
     </section>

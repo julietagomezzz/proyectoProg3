@@ -37,7 +37,8 @@ class SeriesTotales extends Component {
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.series.length === 0 ? 
-          <h1>Trayendo series</h1> :
+          <img src= "../img/loading.gif"
+          alt="Trayendo Peliculas" /> :
           this.state.series.map((serie)=> {
               return(
               <Series nombre={serie.name} imagen={serie.poster_path} descripcion={serie.first_air_date} id={serie.id}  />

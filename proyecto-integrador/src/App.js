@@ -9,6 +9,7 @@ import Series from "./screens/Series"
 import Favoritos from './screens/Favoritos'
 import NotFound from './screens/NotFound'
 
+
 function App() {
   return (
     <>

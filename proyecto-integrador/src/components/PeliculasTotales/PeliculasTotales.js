@@ -46,7 +46,8 @@ class PeliculasTotales extends Component {
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.peliculas.length === 0 ? 
-          <h1>Trayendo peliculas</h1> :
+          <img src= "../img/loading.gif"
+          alt="Trayendo Peliculas" /> :
           this.state.peliculas.map((pelicula)=> {
               return(
               <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id}  />

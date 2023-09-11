@@ -1,6 +1,6 @@
 import './styles.css'
 import { Component } from "react"
-
+import { Link } from "react-router-dom" 
 class Series extends Component{
     constructor(props){
         super(props)
@@ -18,9 +18,9 @@ class Series extends Component{
           {/* <p>  Fecha de estreno: {this.props.descripcion} </p> */}
           <a className='descripcionOculta'>Ver más</a>
 
-          <a href={`/DetalleSerie/id/${this.props.id}`}>
+          <Link to={`/DetalleSerie/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>
-        </a>
+            </Link>
           
       </article>
         )
