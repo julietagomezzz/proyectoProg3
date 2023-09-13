@@ -1,45 +1,47 @@
-
-
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import './styles.css'
 
 class BuscadorForm extends Component{
-    constructor(props){
-        super(props)
+    constructor(props) {
+        super(props);
         this.state = {
-            valorInput: '',
-            movieData:[],
-            backup:[]
-        }
-    }
-
-
-    evitarSubmit(evento){
+          search: "", 
+          resultados: [] 
+        };
+      }
+    
+      evitarSubmit(evento) {
         evento.preventDefault()
-    }
+      }
     
-
-    guardarValor(evento){
+      controlarCambios(evento) {
         this.setState(
-            {
-                valorInput: evento.target.value
-            },
-            () => this.props.filtroPeliculas(this.state.valorInput)
-        )
-    }
-
+          {
+            search: evento.target.value
+          }
+        );
+      }
     
-
-    render(){
-        return(
-            <>
-            <form onSubmit={(evento)=> this.evitarSubmit(evento)}>
-                <input onChange={(evento)=> this.guardarValor(evento)} value={this.state.valorInput}/>
-                <button type="submit">Buscar</button>
+    
+      render() {
+        return (
+          <div className="formulario">
+            <form className="palabraBuscador" onSubmit={(evento) => this.evitarSubmit(evento)} >
+              <input 
+                type="text"
+                placeholder="Buscar..."
+                onChange={(evento) => this.controlarCambios(evento)} value={this.state.search}
+              />
+              {/* <input type= 'submit' value= 'Submit' /> */}
+              <Link to={`/search/${this.state.search}`} className="button">Buscar</Link>
             </form>
-            </>
-        )
+          </div>
+    
+        );
+      }
+    
+    
     }
-}
-
+    
 export default BuscadorForm

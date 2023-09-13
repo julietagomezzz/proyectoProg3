@@ -39,7 +39,7 @@ class index extends Component{
         <BuscadorForm filtroPeliculas={(input) => this.filtroPeliculas(input)}/>
         {
           this.state.busqueda.length === 0 ?
-          <main><PeliculasContainer/></main>
+          <main></main>
           :
           <main><PeliculasTotales movies={this.state.busqueda}/></main>
         }
