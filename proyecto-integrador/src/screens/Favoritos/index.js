@@ -37,14 +37,17 @@ class index extends Component {
   }
   
 
-  render() {
+   render() {
     return (
-      <div>
+       <div>
         <h1>Tus favoritos</h1>
         <FavContainer actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos} />
       </div>
     )
-  }
+   }
+
+
+  
 }
 
 export default index

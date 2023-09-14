@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Peliculas from '../Peliculas/Peliculas'
-import BuscadorForm from '../Buscador/BuscadorForm'
 import './styles.css'
 import BuscadorFilter from '../BuscadorFilter/BuscadorFilter';
 
@@ -16,7 +15,8 @@ class PeliculasTotales extends Component {
     super(props)
     this.state = {
       peliculas: [],
-      page:1
+      filtradas: [],
+      page:1,
     }
   }
 
@@ -28,7 +28,8 @@ class PeliculasTotales extends Component {
     fetch(peliculasPopulares)
     .then(resp => resp.json())
     .then(data => this.setState({
-      peliculas: data.results
+      peliculas: data.results,
+      filtradas: data.results
     }))
     .catch(err => console.log(err))
   }
@@ -39,11 +40,24 @@ class PeliculasTotales extends Component {
       personajes: personajesFiltrados,
     })
   }
+  evitarSubmit(evento){
+    evento.preventDefault()
+    
+  }
+  filtrarPeliculas(nombre){
+    let peliculasFiltradas = this.state.peliculas.filter((elm)=> elm.title.toLowerCase().includes(nombre.toLowerCase()))
+    console.log(peliculasFiltradas );
+    this.setState({
+        filtradas: peliculasFiltradas
+    })
+}
 
 
   render(){
     return (
       <>
+
+       <BuscadorFilter filtrarPeliculas={(nombre)=> this.filtrarPeliculas(nombre)} />
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.peliculas.length === 0 ? 

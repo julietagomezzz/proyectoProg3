@@ -9,6 +9,8 @@ class index extends Component {
     super(props)
     this.state={
         movieData:null,
+        esFavorito: false
+
     }
 }
 
@@ -17,8 +19,54 @@ class index extends Component {
     .then(resp => resp.json())
     .then(data => this.setState({
       movieData: data
-    }))
+    },
+    () => {
+      let storageFav = localStorage.getItem('favoritos')
+      let arrParseado = JSON.parse(storageFav)
+
+      if (arrParseado !== null){
+        let estaMiPelicula = arrParseado.includes(this.state.movieData.id)
+        if(estaMiPelicula){
+          this.setState({
+            esFavorito: true
+          })
+        }
+      }
+    }
+
+    ))
     .catch(err => console.log(err))
+    
+  }
+
+  agregarAFavoritos(idPersonaje){
+    let storageFav = localStorage.getItem('favoritos')
+    if(storageFav === null){
+      let arrIds = [idPersonaje]
+      let arrStringificado = JSON.stringify(arrIds)
+      localStorage.setItem('favoritos', arrStringificado)
+    } else {
+      let arrParseado = JSON.parse(storageFav)
+      arrParseado.push(idPersonaje)
+      let arrStringificado = JSON.stringify(arrParseado)
+      localStorage.setItem('favoritos', arrStringificado)
+    }
+
+    this.setState({
+      esFavorito: true
+    })
+  }
+  sacarDeFavoritos(idPersonaje){
+    let storageFav = localStorage.getItem('favoritos')
+    let arrParseado = JSON.parse(storageFav)
+    let favsFiltrados = arrParseado.filter((id) => id !== idPersonaje)
+    let arrStringificado = JSON.stringify(favsFiltrados)
+    localStorage.setItem('favoritos', arrStringificado)
+    
+    this.setState({
+      esFavorito: false
+    })
+    
   }
 
   render() {
@@ -43,10 +91,14 @@ class index extends Component {
               <p className="subtitulo">DURACIÓN: {this.state.movieData.episode_run_time} minutes</p>
               <p className="subtitulo" id='sinopsis'>SINOPSIS: {this.state.movieData.overview}</p>
               {
-                this.state.isFav ?
-                <button className='botonFav' onClick={() => this.removeFav(this.state.movieData.id)}>Sacar de Favoritos</button>
-                :
-                <button className='botonFav' onClick={() => this.addToFav(this.state.movieData.id)}>Agregar a Favoritos</button>
+                this.state.esFavorito ? 
+                <button onClick = {() => this.sacarDeFavoritos(this.state.movieData.id)}>
+                  Sacar de Favoritos
+                </button>
+                : 
+                <button onClick = {() => this.agregarAFavoritos(this.state.movieData.id)}>
+                  Agregar a Favoritos
+                </button>
               }
                 
                 

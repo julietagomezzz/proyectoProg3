@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Peliculas from '../Peliculas/Peliculas'
-import BuscadorForm from '../Buscador/BuscadorForm'
 import './styles.css'
 import BuscadorFilter from '../BuscadorFilter/BuscadorFilter'
 
@@ -16,6 +15,7 @@ class PeliculasContainer extends Component {
     super(props)
     this.state = {
       peliculas: [],
+      backup:[],
       page:1
     }
   }
@@ -28,7 +28,8 @@ class PeliculasContainer extends Component {
     fetch(peliculasPopulares)
     .then(resp => resp.json())
     .then(data => this.setState({
-      peliculas: data.results
+      peliculas: data.results,
+      backup: data.results
     }))
     .catch(err => console.log(err))
   }
@@ -44,6 +45,7 @@ class PeliculasContainer extends Component {
   render(){
     return (
       <>
+      <BuscadorFilter filtrarPersonajes={(nombre) => this.filtrarPersonajes(nombre)} />
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.peliculas.length === 0 ? 
