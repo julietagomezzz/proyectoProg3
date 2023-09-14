@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import FavContainer from '../../components/FavContainer/FavContainer'
 
+
 class index extends Component {
 
   constructor(props){
     super(props)
     this.state = {
-      favoritos: []
+      favoritos: [],
+
     }
   }
 
@@ -33,12 +35,13 @@ class index extends Component {
       favoritos: stateActualizado
     })
   }
+  
 
   render() {
     return (
       <div>
         <h1>Tus favoritos</h1>
-        <FavContainer actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos} resumen={ this.state.overview} />
+        <FavContainer actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos} />
       </div>
     )
   }

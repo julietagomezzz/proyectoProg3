@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Peliculas from '../Peliculas/Peliculas'
 import BuscadorForm from '../Buscador/BuscadorForm'
 import './styles.css'
+import BuscadorFilter from '../BuscadorFilter/BuscadorFilter';
 
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
 let api= `https://api.themoviedb.org/3/movie/76341?api_key=${apiKey}`

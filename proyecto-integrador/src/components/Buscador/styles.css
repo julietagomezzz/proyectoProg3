@@ -19,4 +19,5 @@
     border-radius: 10px; /* Bordes redondeados */
     padding: 5px 20px; /* Espaciado interno para el botón */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    text-decoration: none;
   }
