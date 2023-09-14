@@ -2,7 +2,7 @@ import './styles.css'
 function Footer(){
     return(
         <footer>
-        <ul>
+        <ul className='footerNombres'>
             <li> Catalina Arzubiaga</li>
             <li> Maria Riobó</li>
             <li> Julieta Gomez</li>

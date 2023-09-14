@@ -44,9 +44,9 @@ class index extends Component {
               <p className="subtitulo" id='sinopsis'>SINOPSIS: {this.state.movieData.overview}</p>
               {
                 this.state.isFav ?
-                <button className='botonFav' onClick={() => this.removeFav(this.state.movieData.id)}>REMOVE FROM FAV</button>
+                <button className='botonFav' onClick={() => this.removeFav(this.state.movieData.id)}>Sacar de Favoritos</button>
                 :
-                <button className='botonFav' onClick={() => this.addToFav(this.state.movieData.id)}>ADD TO FAV</button>
+                <button className='botonFav' onClick={() => this.addToFav(this.state.movieData.id)}>Agregar a Favoritos</button>
               }
                 
                 

@@ -37,8 +37,8 @@ class index extends Component {
   render() {
     return (
       <div>
-        <h1>Aqui van a ir los Favoritos</h1>
-        <FavContainer actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos} />
+        <h1>Tus favoritos</h1>
+        <FavContainer actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos} resumen={ this.state.overview} />
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import './styles.css'
 import Peliculas from "../../components/Peliculas/Peliculas";
 import Series from "../../components/Series/Series";
 import BuscadorForm from "../../components/Buscador/BuscadorForm";
@@ -34,7 +34,7 @@ class ResultadoDeBusqueda extends Component {
                 <BuscadorForm/>
                 {
                     this.state.resultados.length > 0 ?
-                        <ul>
+                        <ul className="ulBusqueda">
                         {
                             this.state.resultados.map((resultado) => 
                             <Peliculas 

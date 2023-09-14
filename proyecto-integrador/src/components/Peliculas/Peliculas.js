@@ -1,13 +1,15 @@
 import './styles.css'
 import { Component } from "react"
 import { Link } from "react-router-dom" 
+
 class Peliculas extends Component{
     constructor(props){
         super(props)
         this.state={
             valor: '',
             mostrar: false,
-            mensaje: 'Ver descripcion'
+            mensaje: 'Ver descripcion',
+            
         }
     }
 
@@ -19,6 +21,7 @@ class Peliculas extends Component{
         if (this.state.mostrar == true ){this.setState({mostrar: false, mensaje: "Ver descripcion"})}
         else{this.setState({mostrar: true, mensaje: "Ocultar descripcion"})}
     }
+    // 
 
 
     render(){
@@ -34,6 +37,7 @@ class Peliculas extends Component{
           <Link to={`/DetallePelicula/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>
             </Link>
+            
         </article>
         )
     }

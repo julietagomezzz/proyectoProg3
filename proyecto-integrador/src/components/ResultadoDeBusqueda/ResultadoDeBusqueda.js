@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BuscadorForm from '../Buscador/BuscadorForm';
 import PeliculasContainer from '../PeliculasContainer/PeliculasContainer';
 import SeriesContainer from '../SeriesContainer/SeriesContainer';
+import './styles.css'
 
 
 class ResultadoDeBusqueda extends Component {
@@ -29,7 +30,8 @@ class ResultadoDeBusqueda extends Component {
                 <BuscadorForm />
                 {
                     this.state.resultados.length > 0 ?
-                        <ul>
+                    <div className='cajaPadre'>
+                        <ul className='cajaPadre'>
                             <PeliculasContainer
                                 album={false}
                                 value={this.state.resultados.map(resultado => ({
@@ -48,7 +50,8 @@ class ResultadoDeBusqueda extends Component {
                                     resumen: resultado.overview
                                 }))}
                             />
-                        </ul> :
+                        </ul>
+                        </div> :
                         <h3>Loading..</h3>
                 }
                 <BuscadorForm />
