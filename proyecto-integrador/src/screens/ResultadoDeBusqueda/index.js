@@ -11,7 +11,8 @@ class ResultadoDeBusqueda extends Component {
         super(props);
         this.state = {
             search: this.props.match.params.search,
-            resultados: [],
+            resultadosPelis: [],
+            resultadosSeries: []
         }
     }
 
@@ -20,23 +21,33 @@ class ResultadoDeBusqueda extends Component {
             .then((response) => response.json())
             .then((resultados_busqueda) =>
                this.setState({
-                    resultados: resultados_busqueda.results
+                resultadosPelis: resultados_busqueda.results
                 }
             )
             )
             .catch(error => console.log(error));
+            fetch(`https://api.themoviedb.org/3/search/tv?query=${this.state.search}`, options)
+            .then((response) => response.json())
+            .then((resultados_busqueda) =>
+               this.setState({
+                resultadosSeries: resultados_busqueda.results
+                }
+            )
+            )
+            .catch(error => console.log(error));    
     }
     
 
     render() {
         return (
             <>
-                <BuscadorForm/>
+               
                 {
-                    this.state.resultados.length > 0 ?
+                    this.state.resultadosPelis.length > 0 ?
                         <ul className="ulBusqueda">
                         {
-                            this.state.resultados.map((resultado) => 
+                            this.state.resultadosPelis.map((resultado) => 
+                            <section className="cajapadre" id="peliculasPopu">
                             <Peliculas 
                             id={resultado.id} 
                             nombre={resultado.title} 
@@ -44,10 +55,29 @@ class ResultadoDeBusqueda extends Component {
                             descripcion={resultado.release_date} 
                             resumen={resultado.overview}
                              />
+                             </section>
+                             
                             )                        
                         }
-                        </ul> :
-                        <h3>Loading..</h3>
+                        </ul> : this.state.resultadosSeries.length > 0 ?
+                        <ul className="ulBusqueda">
+                        {
+                            this.state.resultadosSeries.map((resultado) => 
+                                <section className="cajapadre" id="peliculasPopu">
+
+                                <Series 
+                                id={resultado.id} 
+                                nombre={resultado.name} 
+                                imagen={resultado.poster_path} 
+                                descripcion={resultado.first_air_date} 
+                                resumen={resultado.overview}
+                                />
+                                </section>
+     
+                                     )                        
+                                            }
+                                            </ul> :
+                                                 <h3>Loading..</h3>
                 }
             </>
         )

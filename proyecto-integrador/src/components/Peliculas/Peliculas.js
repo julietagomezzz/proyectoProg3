@@ -39,7 +39,7 @@ class Peliculas extends Component{
           <Link to={`/DetallePelicula/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>
             </Link>
-            
+            <p className="nombrePeli">{this.props.TraerMasMovies}</p>
         </article>
         )
     }

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Peliculas from '../Peliculas/Peliculas'
 import './styles.css'
 import BuscadorFilter from '../BuscadorFilter/BuscadorFilter';
+import { options } from '../../utils/constants'
 
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
 let api= `https://api.themoviedb.org/3/movie/76341?api_key=${apiKey}`
@@ -20,11 +21,16 @@ class PeliculasTotales extends Component {
   }
 
   componentDidMount(){
+    this.setState({
+      filtradas: this.props.movies,
+    });
     this.traerPeliculas()
   }
 
+  
+
   traerPeliculas(){
-    fetch(peliculasPopulares)
+    fetch(peliculasPopulares, options)
     .then(resp => resp.json())
     .then(data => this.setState({
       peliculas: data.results,
@@ -32,19 +38,7 @@ class PeliculasTotales extends Component {
     }))
     .catch(err => console.log(err))
   }
-
   
-
-  traerMasPeliculas(){
-  fetch(`https://api.themoviedb.org/3/movie/${this.state.page + 1}`)
-  .then(resp => resp.json())
-  .then(data => this.setState({
-    peliculas: this.state.peliculas.concat(data.results),
-    page: this.state.page + 1
-  }))
-  .catch(err => console.log(err))
-}
-
   filtrarPeliculas(title){
     const filtroMin = title.toLowerCase(); // Convertir el filtro a minúsculas
     if (filtroMin === '') {
@@ -66,32 +60,26 @@ class PeliculasTotales extends Component {
   render(){
     return (
       <>
-
-       <BuscadorFilter filtrarPeliculas={(title) => this.filtrarPeliculas(title)} />
-       <section className="cajapadre" id="peliculasPopu">
-          {
-            this.state.peliculas.length === 0 ?
-              <img src="../img/loading.gif"
-                alt="Trayendo Peliculas" /> :
-              this.state.filtradas.map((pelicula) => {
-                return (
-                  <>
-                   <main>
-                  <Peliculas
-                    key={pelicula.id}
-                    nombre={pelicula.title}
-                    imagen={pelicula.poster_path}
-                    descripcion={pelicula.release_date}
-                    id={pelicula.id}
-                    resumen={pelicula.overview}
-                  /></main>
-                 
-                  </>
-                )
-              })
-          }
-        </section>
-      </>
+      <BuscadorFilter filtrarPeliculas={(title) => this.filtrarPeliculas(title)} />
+      <section className="cajapadre" id="peliculasPopu">
+        {this.state.filtradas.map((pelicula) => {
+          return (
+            <div className='characters-container' key={pelicula.id}>
+              <Peliculas
+                nombre={pelicula.title}
+                imagen={pelicula.poster_path}
+                descripcion={pelicula.release_date}
+                id={pelicula.id}
+                resumen={pelicula.overview}
+                TraerMasMovies={this.props.TraerMasMovies}
+              />
+            </div>
+            
+          );
+        })}
+       
+      </section>
+    </>
     )
   }
 }

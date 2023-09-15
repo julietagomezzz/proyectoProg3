@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { options } from '../../utils/constants'
 import Peliculas from '../Peliculas/Peliculas'
 import './styles.css'
 import BuscadorFilter from '../BuscadorFilter/BuscadorFilter'
@@ -33,6 +34,7 @@ class PeliculasContainer extends Component {
     }))
     .catch(err => console.log(err))
   }
+  
 
   filtrarPersonajes(nombre){
     let personajesFiltrados = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(nombre.toLowerCase()))
@@ -53,7 +55,7 @@ class PeliculasContainer extends Component {
             if (index < 5){
               return(
                 <>
-              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id} resumen={pelicula.overview} />
+              <Peliculas nombre={pelicula.title} imagen={pelicula.poster_path} descripcion={pelicula.release_date} id={pelicula.id} resumen={pelicula.overview}  />
              
               </>
               )
