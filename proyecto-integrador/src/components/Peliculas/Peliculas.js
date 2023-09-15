@@ -1,6 +1,8 @@
 import './styles.css'
 import { Component } from "react"
 import { Link } from "react-router-dom" 
+import BuscadorFilter from '../BuscadorFilter/BuscadorFilter';
+
 
 class Peliculas extends Component{
     constructor(props){

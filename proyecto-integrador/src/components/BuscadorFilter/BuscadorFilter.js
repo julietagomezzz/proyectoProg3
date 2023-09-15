@@ -23,10 +23,12 @@ export default class BuscadorFilter extends Component {
 
     render() {
         return (
+          <>
             <form className="formulario" onSubmit={(evento)=> this.evitarSubmit(evento)}>
                 <input className="busqueda" placeholder="Buscar..." type="text" onChange={(evento)=>this.controlarCambios(evento)} value={this.state.valor} />
                 <button className='button'>Buscar</button>
             </form>
+            </>
         )
     }
 }

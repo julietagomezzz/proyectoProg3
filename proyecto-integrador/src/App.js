@@ -9,6 +9,7 @@ import Series from "./screens/Series"
 import Favoritos from './screens/Favoritos'
 import NotFound from './screens/NotFound'
 import ResultadoDeBusqueda from './screens/ResultadoDeBusqueda'
+import BuscadorFilter from './components/BuscadorFilter/BuscadorFilter'
 
 
 function App() {

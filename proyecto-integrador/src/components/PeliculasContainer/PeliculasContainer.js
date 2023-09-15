@@ -45,7 +45,6 @@ class PeliculasContainer extends Component {
   render(){
     return (
       <>
-      <BuscadorFilter filtrarPersonajes={(nombre) => this.filtrarPersonajes(nombre)} />
        <section className="cajapadre" id="peliculasPopu" >
         {
           this.state.peliculas.length === 0 ? 
