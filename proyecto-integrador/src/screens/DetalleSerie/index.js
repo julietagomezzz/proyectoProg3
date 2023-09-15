@@ -21,7 +21,7 @@ class index extends Component {
       movieData: data
     },
     () => {
-      let storageFav = localStorage.getItem('favoritos')
+      let storageFav = localStorage.getItem('favoritosSeries')
       let arrParseado = JSON.parse(storageFav)
 
       if (arrParseado !== null){
@@ -40,16 +40,16 @@ class index extends Component {
   }
 
   agregarAFavoritos(idPersonaje){
-    let storageFav = localStorage.getItem('favoritos')
+    let storageFav = localStorage.getItem('favoritosSeries')
     if(storageFav === null){
       let arrIds = [idPersonaje]
       let arrStringificado = JSON.stringify(arrIds)
-      localStorage.setItem('favoritos', arrStringificado)
+      localStorage.setItem('favoritosSeries', arrStringificado)
     } else {
       let arrParseado = JSON.parse(storageFav)
       arrParseado.push(idPersonaje)
       let arrStringificado = JSON.stringify(arrParseado)
-      localStorage.setItem('favoritos', arrStringificado)
+      localStorage.setItem('favoritosSeries', arrStringificado)
     }
 
     this.setState({
@@ -57,11 +57,11 @@ class index extends Component {
     })
   }
   sacarDeFavoritos(idPersonaje){
-    let storageFav = localStorage.getItem('favoritos')
+    let storageFav = localStorage.getItem('favoritosSeries')
     let arrParseado = JSON.parse(storageFav)
     let favsFiltrados = arrParseado.filter((id) => id !== idPersonaje)
     let arrStringificado = JSON.stringify(favsFiltrados)
-    localStorage.setItem('favoritos', arrStringificado)
+    localStorage.setItem('favoritosSeries', arrStringificado)
     
     this.setState({
       esFavorito: false
