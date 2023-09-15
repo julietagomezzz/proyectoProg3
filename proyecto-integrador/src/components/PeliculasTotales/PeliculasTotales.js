@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Peliculas from '../Peliculas/Peliculas'
-import './styles.css'
 import BuscadorFilter from '../BuscadorFilter/BuscadorFilter';
 import { options } from '../../utils/constants'
+import './styles.css'
 
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
 let api= `https://api.themoviedb.org/3/movie/76341?api_key=${apiKey}`
@@ -31,11 +31,11 @@ class PeliculasTotales extends Component {
 
   traerPeliculas(){
     fetch(peliculasPopulares, options)
-    .then(resp => resp.json())
-    .then(data => this.setState({
-      peliculas: data.results,
-      filtradas: data.results
-    }))
+      .then(resp => resp.json())
+      .then(data => this.setState({
+        peliculas: data.results,
+        filtradas: data.results
+      }))
     .catch(err => console.log(err))
   }
   

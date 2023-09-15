@@ -11,7 +11,6 @@ import NotFound from './screens/NotFound'
 import ResultadoDeBusqueda from './screens/ResultadoDeBusqueda'
 import BuscadorFilter from './components/BuscadorFilter/BuscadorFilter'
 
-
 function App() {
   return (
     <>
