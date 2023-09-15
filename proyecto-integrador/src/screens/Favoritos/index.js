@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FavContainer from '../../components/FavContainer/FavContainer'
+import './styles.css';
 
 
 class index extends Component {

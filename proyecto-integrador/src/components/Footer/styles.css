@@ -35,3 +35,26 @@ footer{
     margin-bottom: 5%;
     align-items: center;
 }
+/*--Responsive mobile last--*/
+
+/* Media Queries*/
+
+@media(max-width: 420px){
+    /* footer*/
+    footer{
+        background-color: purple;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        flex-direction: row;
+       
+    }
+    .imgFooter{
+        display: flex;
+        justify-content: end;
+        width:5%;
+        height: 50%;
+        margin: 0 0 0 5%;
+        height: 10vh;
+    }
+}

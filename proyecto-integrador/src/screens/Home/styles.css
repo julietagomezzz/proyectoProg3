@@ -16,3 +16,9 @@
     padding: 5px 20px; /* Espaciado interno para el botón */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
 }
+/*--Responsive mobile last--*/
+
+/* Media Queries*/
+
+@media(max-width: 420px){
+}

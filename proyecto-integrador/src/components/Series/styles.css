@@ -44,6 +44,12 @@ img{
   margin-bottom: 8px;
   cursor: pointer;
 }
+/*--Responsive mobile last--*/
+
+/* Media Queries*/
+
+@media(max-width: 420px){
+}
 
 
 

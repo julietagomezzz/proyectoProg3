@@ -53,4 +53,53 @@
     cursor: pointer; 
     align-self: center;
   }
+  /*--Responsive mobile last--*/
+
+/* Media Queries*/
+
+@media(max-width: 420px){
+  /*Pagina de detalle*/
+  .image {
+
+    width: 30%;
+    height: 27%; 
+    border-radius: 10%;
+    margin-top: 120px;
+    margin-left: 15px;
+}
+  .section{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    }
+    .article{
+    align-self: center;
+    margin-bottom: 2vh;
+    margin-top: 0px;
+
+    }
+    .image{
+    height: auto;
+    width: 50%;
+    border-radius: 8%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    }
+    .titulo{
+    font-size: 25px;
+    margin-bottom: 2vh;
+    max-width: 100%;
+    }
+
+    .subtitulo{
+    font-size: 15px;
+    margin-bottom: 1vh;
+    font-weight: normal;
+    align-self: flex-start;
+    }
+
+    
   
+}

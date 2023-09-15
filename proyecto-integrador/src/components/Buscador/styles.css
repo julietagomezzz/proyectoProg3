@@ -21,3 +21,9 @@
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
     text-decoration: none;
   }
+  /*--Responsive mobile last--*/
+
+/* Media Queries*/
+
+@media(max-width: 420px){
+}

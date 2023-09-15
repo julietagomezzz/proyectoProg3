@@ -57,6 +57,11 @@ img{
   border-radius: 10px;
 }
 
+/*--Responsive mobile last--*/
 
+/* Media Queries*/
+
+@media(max-width: 420px){
+}
 
 
