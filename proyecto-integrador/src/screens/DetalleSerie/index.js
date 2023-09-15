@@ -9,7 +9,8 @@ class index extends Component {
     super(props)
     this.state={
         movieData:null,
-        esFavorito: false
+        esFavorito: false,
+        generos: [],
 
     }
 }
@@ -18,7 +19,8 @@ class index extends Component {
     fetch(`https://api.themoviedb.org/3/tv/${this.props.match.params.id}`, options)
     .then(resp => resp.json())
     .then(data => this.setState({
-      movieData: data
+      movieData: data,
+      generos: data.genres.map((genre) => genre.name),
     },
     () => {
       let storageFav = localStorage.getItem('favoritosSeries')
@@ -86,7 +88,7 @@ class index extends Component {
               <h2 className="titulo">{this.state.movieData.name}</h2>
               <p className="subtitulo">RATING: {this.state.movieData.vote_average}</p>
               <p className="subtitulo">FECHA DE ESTRENO:  { this.state.movieData.first_air_date}</p>
-              <p className="subtitulo">GÉNERO: { this.state.movieData.first_air_date}</p>
+              <p className="subtitulo">GÉNERO: { this.state.generos.join(', ')}</p>
              
               <p className="subtitulo">DURACIÓN: {this.state.movieData.episode_run_time} minutes</p>
               <p className="subtitulo" id='sinopsis'>SINOPSIS: {this.state.movieData.overview}</p>
