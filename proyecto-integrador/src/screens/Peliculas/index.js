@@ -24,17 +24,18 @@ class index extends Component {
         
         .catch(err => console.error(err));
 }
-TraerMasMovies(){
-    fetch(`https://api.themoviedb.org/3/movie/popular?page=${this.state.page + 1}`, options)
-      .then(response => response.json())
-      .then(data=> { 
-        console.log(data); 
-        this.setState({
+TraerMasMovies() {
+  console.log("Cargando más películas...");
+  fetch(`https://api.themoviedb.org/3/movie/popular?page=${this.state.page + 1}`, options)
+    .then(response => response.json())
+    .then(data => {
+      console.log("Nuevos datos:", data);
+      this.setState({
         movies: this.state.movies.concat(data.results),
         backup: this.state.backup.concat(data.results),
         page: this.state.page + 1
+      });
     })
-  })
     .catch(err => console.log(err))
 }
 

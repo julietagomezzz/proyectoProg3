@@ -28,7 +28,7 @@ class Peliculas extends Component{
 
     render(){
         return(
-        
+            < >
         <article >
            <img src= {`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} 
           alt={this.props.nombre} />
@@ -39,8 +39,10 @@ class Peliculas extends Component{
           <Link to={`/DetallePelicula/id/${this.props.id}`}>
             <button type="" className="verMas">Ir a detalle</button>
             </Link>
-            <p className="nombrePeli">{this.props.TraerMasMovies}</p>
+           
         </article>
+        
+        </>
         )
     }
 }

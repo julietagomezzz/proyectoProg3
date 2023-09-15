@@ -19,6 +19,14 @@ class PeliculasTotales extends Component {
       filtroBusqueda:'',
     }
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.movies !== prevProps.movies) {
+      this.setState({
+        filtradas: this.props.movies,
+      });
+    }
+  }
+  
 
   componentDidMount(){
     this.setState({

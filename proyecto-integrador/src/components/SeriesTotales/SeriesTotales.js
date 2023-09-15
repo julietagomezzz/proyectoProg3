@@ -16,8 +16,18 @@ class SeriesTotales extends Component {
       page: 1,
     };
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.movies !== prevProps.movies) {
+      this.setState({
+        filtradas: this.props.movies,
+      });
+    }
+  }
 
   componentDidMount() {
+    this.setState({
+      filtradas: this.props.movies,
+    });
     this.traerSeries();
   }
 
@@ -66,6 +76,7 @@ class SeriesTotales extends Component {
                   descripcion={serie.first_air_date}
                   id={serie.id}
                   resumen={serie.overview}
+                  TraerMasMovies={this.props.TraerMasMovies}
                 />
               );
             })
