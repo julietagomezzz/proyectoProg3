@@ -22,14 +22,14 @@ export default class FavContainer extends Component {
         {
           this.props.peliculas.length === 0?
           <img src= "../img/loading.gif" alt="Trayendo Peliculas" /> :       
-           this.props.peliculas.map((elm, idx) => <Peliculas  id = {elm.id} imagen = {elm.poster_path} nombre = {elm.title} descripcion = {elm.overview} actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos}/>
+           this.props.peliculas.map((elm, idx) => <Peliculas  id = {elm.id} imagen = {elm.poster_path} nombre = {elm.title} resumen = {elm.overview} actualizarState ={(id)=> this.actualizarState(id)} peliculas={this.state.favoritos}/>
         )
         }
 
 {
           this.props.series.length === 0?
           <img src= "../img/loading.gif" alt="Trayendo Peliculas" /> :       
-           this.props.series.map((elm, idx) => <Series  id = {elm.id} imagen = {elm.poster_path} nombre = {elm.title} descripcion = {elm.overview} actualizarStateSeries ={(id)=> this.actualizarStateSeries(id)} series={this.state.favoritos}/>
+           this.props.series.map((elm, idx) => <Series  id = {elm.id} imagen = {elm.poster_path} nombre = {elm.title} resumen = {elm.overview} actualizarStateSeries ={(id)=> this.actualizarStateSeries(id)} series={this.state.favoritos}/>
         )
         }
         

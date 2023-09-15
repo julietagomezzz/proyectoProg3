@@ -33,7 +33,17 @@ class PeliculasTotales extends Component {
     .catch(err => console.log(err))
   }
 
- 
+  
+
+  traerMasPeliculas(){
+  fetch(`https://api.themoviedb.org/3/movie/${this.state.page + 1}`)
+  .then(resp => resp.json())
+  .then(data => this.setState({
+    peliculas: this.state.peliculas.concat(data.results),
+    page: this.state.page + 1
+  }))
+  .catch(err => console.log(err))
+}
 
   filtrarPeliculas(title){
     const filtroMin = title.toLowerCase(); // Convertir el filtro a minúsculas
@@ -65,6 +75,8 @@ class PeliculasTotales extends Component {
                 alt="Trayendo Peliculas" /> :
               this.state.filtradas.map((pelicula) => {
                 return (
+                  <>
+                   <main>
                   <Peliculas
                     key={pelicula.id}
                     nombre={pelicula.title}
@@ -72,7 +84,9 @@ class PeliculasTotales extends Component {
                     descripcion={pelicula.release_date}
                     id={pelicula.id}
                     resumen={pelicula.overview}
-                  />
+                  /></main>
+                 
+                  </>
                 )
               })
           }
